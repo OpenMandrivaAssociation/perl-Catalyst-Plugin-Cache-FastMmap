@@ -3,7 +3,7 @@
 
 %define version	0.6
 
-%define rel	3
+%define rel	4
 %define release %mkrel %rel
 
 Summary:	Mmap cache for Catalyst applications
