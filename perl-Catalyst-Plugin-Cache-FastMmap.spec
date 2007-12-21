@@ -23,6 +23,7 @@ BuildRequires:	perl(Cache::FastMmap)
 BuildRequires:	perl(Class::Data::Inheritable)
 BuildRequires:  perl(Module::Build)
 BuildArch:	noarch
+Buildroot:	%_tmppath/%name-buildroot
 
 %description
 This package is part of the Catalyst Cache family. It allows
