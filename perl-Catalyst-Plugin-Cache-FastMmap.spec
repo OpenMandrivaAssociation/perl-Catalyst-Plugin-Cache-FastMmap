@@ -1,10 +1,7 @@
-%define realname Catalyst-Plugin-Cache-FastMmap
-%define name	perl-%realname
-
-%define version	0.6
-
-%define rel	4
-%define release %mkrel %rel
+%define module Catalyst-Plugin-Cache-FastMmap
+%define name	perl-%module
+%define version	0.8
+%define release %mkrel 1
 
 Summary:	Mmap cache for Catalyst applications
 Name:		%name
@@ -12,43 +9,38 @@ Version:	%version
 Release:	%release
 License:	Artistic/GPL
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%realname/
-Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/Catalyst/%realname-%version.tar.bz2
-%if %{mdkversion} < 1010
-BuildRequires:	perl-devel
-%else
-BuildRequires:	perl
-%endif
+URL:		http://search.cpan.org/dist/%module/
+Source:     http://www.cpan.org/modules/by-module/Catalyst/%{module}-%{version}.tar.gz
 BuildRequires:	perl(Cache::FastMmap)
 BuildRequires:	perl(Class::Data::Inheritable)
 BuildRequires:  perl(Module::Build)
 BuildArch:	noarch
-Buildroot:	%_tmppath/%name-buildroot
+Buildroot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This package is part of the Catalyst Cache family. It allows
 integration of Cache::FastMmap and Catalyst.
 
 %prep
-%setup -q -n %realname-%version
+%setup -q -n %module-%version
 
 %build
-%__perl Build.PL installdirs=vendor
-./Build
+%__perl Makefile.PL installdirs=vendor
+%make
 
 %check
-./Build test
+%make test
 
 %install
-rm -rf $RPM_BUILD_ROOT
-./Build install destdir=%buildroot
+rm -rf %{buildroot}
+%makeinstall_std
+
+%clean
+rm -rf %{buildroot}
 
 %files
-%defattr(644,root,root,755)
+%defattr(-,root,root)
 %doc Changes README
 %perl_vendorlib/Catalyst
 %_mandir/*/*
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
