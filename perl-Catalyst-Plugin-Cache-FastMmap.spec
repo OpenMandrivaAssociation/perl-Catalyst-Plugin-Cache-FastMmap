@@ -11,9 +11,11 @@ License:	Artistic/GPL
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%module/
 Source:     http://www.cpan.org/modules/by-module/Catalyst/%{module}-%{version}.tar.gz
+BuildRequires:	perl(Catalyst::Runtime)
 BuildRequires:	perl(Cache::FastMmap)
 BuildRequires:	perl(Class::Data::Inheritable)
 BuildRequires:  perl(Module::Build)
+BuildRequires:  perl(MRO::Compat)
 BuildArch:	noarch
 Buildroot:	%{_tmppath}/%{name}-%{version}
 
@@ -25,7 +27,7 @@ integration of Cache::FastMmap and Catalyst.
 %setup -q -n %module-%version
 
 %build
-%__perl Makefile.PL installdirs=vendor
+%__perl Makefile.PL installdirs=vendor --skipdeps
 %make
 
 %check
