@@ -1,5 +1,5 @@
 %define upstream_name    Catalyst-Plugin-Cache-FastMmap
-%define upstream_version 0.8
+%define upstream_version 0.9
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
