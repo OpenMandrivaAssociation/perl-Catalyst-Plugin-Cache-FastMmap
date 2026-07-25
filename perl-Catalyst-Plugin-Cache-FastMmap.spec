@@ -2,14 +2,14 @@
 %define upstream_version 0.9
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	%{upstream_version}
+Release:	5
 
 Summary:	Mmap cache for Catalyst applications
 License:	Artistic/GPL
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%upstream_name/
-Source0:	http://www.cpan.org/modules/by-module/Catalyst/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://dev.catalyst.perl.org/repos/Catalyst/trunk/Catalyst-Plugin-Cache-FastMmap
+Source0:	https://cpan.metacpan.org/authors/id/B/BO/BOBTFISH/Catalyst-Plugin-Cache-FastMmap-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
