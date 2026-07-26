@@ -1,15 +1,13 @@
 %define upstream_name    Catalyst-Plugin-Cache-FastMmap
-%define upstream_version 0.9
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	5
+Version:	0.9
+Release:	6
 
 Summary:	Mmap cache for Catalyst applications
 License:	Artistic/GPL
 Group:		Development/Perl
 Url:		https://dev.catalyst.perl.org/repos/Catalyst/trunk/Catalyst-Plugin-Cache-FastMmap
-Source0:	https://cpan.metacpan.org/authors/id/B/BO/BOBTFISH/Catalyst-Plugin-Cache-FastMmap-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/B/BO/BOBTFISH/Catalyst-Plugin-Cache-FastMmap-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -26,7 +24,7 @@ This package is part of the Catalyst Cache family. It allows
 integration of Cache::FastMmap and Catalyst.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 %__perl Makefile.PL installdirs=vendor --skipdeps
@@ -51,9 +49,7 @@ integration of Cache::FastMmap and Catalyst.
 
 * Sat Feb 13 2010 JÃ©rÃ´me Quelin <jquelin@mandriva.org> 0.800.0-1mdv2011.0
 + Revision: 505418
-- rebuild using %%perl_convert_version
-
-* Thu May 21 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.8-1mdv2010.0
+- rebuild using %0.9 Thu May 21 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.8-1mdv2010.0
 + Revision: 378164
 - new version
 
